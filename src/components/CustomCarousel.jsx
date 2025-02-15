@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 const images = [
-  { id: 1, url: "https://source.unsplash.com/random/800x600?nature", title: "Nature" },
-  { id: 2, url: "https://source.unsplash.com/random/800x600?city", title: "City Life" },
-  { id: 3, url: "https://source.unsplash.com/random/800x600?technology", title: "Technology" },
-  { id: 4, url: "https://source.unsplash.com/random/800x600?travel", title: "Travel" },
+  { id: 1, url: "https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D", title: "Nature" },
+  { id: 2, url: "https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmF0dXJlfGVufDB8fDB8fHww", title: "Forêt" },
+  { id: 3, url: "https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D", title: "Ciel et nuage" },
+  { id: 4, url: "https://images.unsplash.com/photo-1515096788709-a3cf4ce0a4a6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D", title: "Fleur" },
 ];
 
 const CustomCarousel = () => {
