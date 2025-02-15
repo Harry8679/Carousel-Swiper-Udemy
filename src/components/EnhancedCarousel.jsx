@@ -12,11 +12,11 @@ const EnhancedCarousel = () => {
   const [fade, setFade] = useState(true);
 
   const nextSlide = () => {
-    setFade(false); // Début du fade-out
+    setFade(false);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      setFade(true); // Début du fade-in
-    }, 500); // Temps de l'animation (0.5s)
+      setFade(true);
+    }, 500);
   };
 
   const prevSlide = () => {
@@ -35,9 +35,9 @@ const EnhancedCarousel = () => {
   }, []);
 
   return (
-    <div className="relative max-w-2xl mx-auto p-5">
-      {/* Image avec Transition */}
-      <div className="w-full h-[450px] overflow-hidden rounded-lg shadow-lg relative">
+    <div className="relative mx-auto p-5 max-w-[600px] w-full">
+      {/* Image avec Bonne Taille */}
+      <div className="relative aspect-[16/9] w-full rounded-lg shadow-lg bg-gray-300">
         {images.map((image, index) => (
           <img
             key={image.id}
