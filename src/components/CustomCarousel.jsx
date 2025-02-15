@@ -7,7 +7,7 @@ const images = [
   { id: 4, url: "https://images.unsplash.com/photo-1515096788709-a3cf4ce0a4a6?w=900&auto=format&fit=crop&q=60", title: "Fleur" },
 ];
 
-const CustomCarousel = () => {
+const SimpleCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -21,48 +21,36 @@ const CustomCarousel = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 6000); // Passage toutes les 6 secondes
+    const interval = setInterval(nextSlide, 5000); // Défilement toutes les 5s
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div>
-      {images.map((image) => {
-        return (
-          <div className="relative max-w-4xl mx-auto py-10">
-      {/* Conteneur du Carousel */}
-      <div className="relative w-full h-[500px] rounded-lg shadow-lg bg-gray-300 overflow-hidden">
-        {images.map((image, index) => (
-          <div
-            key={image.id}
-            className={`absolute left-0 top-0 w-full h-full transition-opacity duration-1500 ${
-              index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-          >
-            <img
-              src={image.url}
-              alt={image.title}
-              className="w-full h-full object-contain rounded-lg"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-center p-4 text-lg font-semibold">
-              {image.title}
-            </div>
-          </div>
-        ))}
+    <div className="relative max-w-2xl mx-auto p-5">
+      {/* Image */}
+      <div className="w-full h-[400px] overflow-hidden rounded-lg shadow-lg">
+        <img
+          src={images[currentIndex].url}
+          alt={images[currentIndex].title}
+          className="w-full h-full object-cover"
+        />
       </div>
 
-      {/* Bouton Précédent */}
+      {/* Titre */}
+      <div className="text-center text-lg font-semibold mt-2">
+        {images[currentIndex].title}
+      </div>
+
+      {/* Boutons */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full hover:bg-gray-900 z-20"
+        className="absolute top-1/2 left-5 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900"
       >
         ❮
       </button>
-
-      {/* Bouton Suivant */}
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full hover:bg-gray-900 z-20"
+        className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900"
       >
         ❯
       </button>
@@ -79,60 +67,7 @@ const CustomCarousel = () => {
         ))}
       </div>
     </div>
-        )
-      })}
-    </div>
-    // <div className="relative max-w-4xl mx-auto py-10">
-    //   {/* Conteneur du Carousel */}
-    //   <div className="relative w-full h-[500px] rounded-lg shadow-lg bg-gray-300 overflow-hidden">
-    //     {images.map((image, index) => (
-    //       <div
-    //         key={image.id}
-    //         className={`absolute left-0 top-0 w-full h-full transition-opacity duration-1500 ${
-    //           index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-    //         }`}
-    //       >
-    //         <img
-    //           src={image.url}
-    //           alt={image.title}
-    //           className="w-full h-full object-contain rounded-lg"
-    //         />
-    //         <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-center p-4 text-lg font-semibold">
-    //           {image.title}
-    //         </div>
-    //       </div>
-    //     ))}
-    //   </div>
-
-    //   {/* Bouton Précédent */}
-    //   <button
-    //     onClick={prevSlide}
-    //     className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full hover:bg-gray-900 z-20"
-    //   >
-    //     ❮
-    //   </button>
-
-    //   {/* Bouton Suivant */}
-    //   <button
-    //     onClick={nextSlide}
-    //     className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full hover:bg-gray-900 z-20"
-    //   >
-    //     ❯
-    //   </button>
-
-    //   {/* Indicateurs */}
-    //   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-    //     {images.map((_, index) => (
-    //       <div
-    //         key={index}
-    //         className={`w-3 h-3 rounded-full ${
-    //           index === currentIndex ? "bg-white" : "bg-gray-400"
-    //         }`}
-    //       ></div>
-    //     ))}
-    //   </div>
-    // </div>
   );
 };
 
-export default CustomCarousel;
+export default SimpleCarousel;
